@@ -23,3 +23,10 @@ The completed workshop version includes example code that demonstrates the follo
 12. Alternate collection layouts.  (Part 5)
 13. Empty collection views. (Part 5)
 14. Light / Dark Themes. (Part 6)
+
+## Reset
+
+- [Pull Request #2](https://github.com/scottkuhl/MauiWorkshop/pull/2)
+- [Workshop Branch](https://github.com/scottkuhl/MauiWorkshop/tree/reset)
+
+Reset the starting project to match the default template more closely in RC1.
