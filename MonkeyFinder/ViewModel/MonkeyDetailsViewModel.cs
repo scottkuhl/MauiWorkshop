@@ -16,7 +16,7 @@ public partial class MonkeyDetailsViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    private Monkey monkey;
+    private Monkey monkey = default!;
 
     [ICommand]
     public async Task OpenMap()
@@ -32,7 +32,10 @@ public partial class MonkeyDetailsViewModel : BaseViewModel
         catch (Exception ex)
         {
             Debug.WriteLine($"Unable to launch maps: {ex.Message}");
-            await Application.Current.MainPage.DisplayAlert("Error, no Maps app!", ex.Message, "OK");
+            if (Application.Current?.MainPage is not null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error, no Maps app!", ex.Message, "OK");
+            }
         }
     }
 }

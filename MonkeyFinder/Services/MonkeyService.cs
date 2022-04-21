@@ -6,7 +6,7 @@ namespace MonkeyFinder.Services;
 public class MonkeyService
 {
     private readonly HttpClient httpClient;
-    private List<Monkey> monkeyList = new();
+    private List<Monkey>? monkeyList;
 
     public MonkeyService()
     {
@@ -20,13 +20,13 @@ public class MonkeyService
             return monkeyList;
         }
 
-        HttpResponseMessage response = await httpClient.GetAsync("https://www.montemagno.com/monkeys.json");
+        var response = await httpClient.GetAsync("https://www.montemagno.com/monkeys.json");
 
         if (response.IsSuccessStatusCode)
         {
             monkeyList = await response.Content.ReadFromJsonAsync<List<Monkey>>();
         }
 
-        return monkeyList;
+        return monkeyList ?? new();
     }
 }

@@ -13,7 +13,7 @@ public partial class MainPage : ContentPage
 
     private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is not Monkey monkey)
+        if (e.CurrentSelection.Count == 0 || e.CurrentSelection[0] is not Monkey monkey)
         {
             return;
         }
@@ -26,4 +26,3 @@ public partial class MainPage : ContentPage
         ((CollectionView)sender).SelectedItem = null;
     }
 }
-
