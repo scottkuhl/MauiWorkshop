@@ -9,7 +9,7 @@
     ios:Page.UseSafeArea="True"
     x:DataType="viewmodel:MonkeyDetailsViewModel">
 
-    <ScrollView Background="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+    <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
 
@@ -41,7 +41,6 @@
                     Margin="8"
                     Command="{Binding OpenMapCommand}"
                     HorizontalOptions="Center"
-                    Style="{StaticResource ButtonOutline}"
                     Text="Show on Map"
                     WidthRequest="200" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Details}" />

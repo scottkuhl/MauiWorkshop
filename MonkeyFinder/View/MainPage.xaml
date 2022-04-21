@@ -7,11 +7,9 @@
     xmlns:model="clr-namespace:MonkeyFinder.Model"
     xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
     Title="{Binding Title}"
-    ios:Page.UseSafeArea="True"
     x:DataType="viewmodel:MonkeysViewModel">
 
     <Grid
-        Background="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
@@ -65,7 +63,6 @@
             Margin="8"
             Command="{Binding GetMonkeysCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
             Text="Get Monkeys" />
 
         <Button
@@ -74,7 +71,6 @@
             Margin="8"
             Command="{Binding GetClosestMonkeyCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
             Text="Find Closest" />
 
         <ActivityIndicator
