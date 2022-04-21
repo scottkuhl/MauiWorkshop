@@ -1,53 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="MonkeyFinder.DetailsPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-    xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
-    Title="{Binding Monkey.Name}"
-    ios:Page.UseSafeArea="True"
-    x:DataType="viewmodel:MonkeyDetailsViewModel">
+<ContentPage x:Class="MonkeyFinder.DetailsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
+             Title="{Binding Monkey.Name}"
+             x:DataType="viewmodel:MonkeyDetailsViewModel"
+             ios:Page.UseSafeArea="True">
 
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
 
-                <BoxView
-                    Grid.ColumnSpan="3"
-                    Background="{StaticResource Primary}"
-                    HeightRequest="160"
-                    HorizontalOptions="FillAndExpand" />
-                <Frame
-                    Grid.RowSpan="2"
-                    Grid.Column="1"
-                    Margin="0,80,0,0"
-                    Padding="0"
-                    CornerRadius="80"
-                    HorizontalOptions="Center">
-                    <Image
-                        Aspect="AspectFill"
-                        HeightRequest="160"
-                        HorizontalOptions="Center"
-                        Source="{Binding Monkey.Image}"
-                        VerticalOptions="Center"
-                        WidthRequest="160" />
+                <BoxView Grid.ColumnSpan="3"
+                         HeightRequest="160"
+                         HorizontalOptions="FillAndExpand"
+                         Background="{StaticResource Primary}" />
+                <Frame Grid.RowSpan="2"
+                       Grid.Column="1"
+                       Margin="0,80,0,0"
+                       Padding="0"
+                       HorizontalOptions="Center"
+                       CornerRadius="80">
+                    <Image WidthRequest="160"
+                           HeightRequest="160"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Aspect="AspectFill"
+                           Source="{Binding Monkey.Image}" />
                 </Frame>
-
             </Grid>
 
-            <VerticalStackLayout Padding="10" Spacing="10">
-                <Button
-                    Margin="8"
-                    Command="{Binding OpenMapCommand}"
-                    HorizontalOptions="Center"
-                    Text="Show on Map"
-                    WidthRequest="200" />
+            <VerticalStackLayout Spacing="10" Padding="10">
+                <Button WidthRequest="200"
+                        Margin="8"
+                        HorizontalOptions="Center"
+                        Command="{Binding OpenMapCommand}"
+                        Text="Show on Map" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Details}" />
                 <Label Style="{StaticResource MicroLabel}" Text="{Binding Monkey.Location, StringFormat='Location: {0}'}" />
                 <Label Style="{StaticResource MicroLabel}" Text="{Binding Monkey.Population, StringFormat='Population: {0}'}" />
             </VerticalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

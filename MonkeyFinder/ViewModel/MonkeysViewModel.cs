@@ -33,10 +33,10 @@ public partial class MonkeysViewModel : BaseViewModel
         {
             IsBusy = true;
 
-            List<Monkey> monkeys = await monkeyService.GetMonkeys();
+            var monkeys = await monkeyService.GetMonkeys();
 
             Monkeys.Clear();
-            foreach (Monkey monkey in monkeys)
+            foreach (var monkey in monkeys)
             {
                 Monkeys.Add(monkey);
             }
@@ -44,7 +44,10 @@ public partial class MonkeysViewModel : BaseViewModel
         catch (Exception ex)
         {
             Debug.WriteLine($"Unable to get monkeys: {ex.Message}");
-            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+            if (Application.Current?.MainPage is not null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+            }
         }
         finally
         {
@@ -64,7 +67,7 @@ public partial class MonkeysViewModel : BaseViewModel
         try
         {
             // Get cached location, else get real location.
-            Location location = await geolocation.GetLastKnownLocationAsync();
+            var location = await geolocation.GetLastKnownLocationAsync();
             if (location == null)
             {
                 location = await geolocation.GetLocationAsync(new GeolocationRequest
@@ -75,18 +78,22 @@ public partial class MonkeysViewModel : BaseViewModel
             }
 
             // Find closest monkey to us
-            Monkey first = Monkeys.OrderBy(m => location.CalculateDistance(
+            var first = Monkeys.OrderBy(m => location.CalculateDistance(
                 new Location(m.Latitude, m.Longitude), DistanceUnits.Miles))
                 .FirstOrDefault();
 
-            await Application.Current.MainPage.DisplayAlert("", first.Name + " " +
-                first.Location, "OK");
-
+            if (Application.Current?.MainPage is not null && first is not null)
+            {
+                await Application.Current.MainPage.DisplayAlert("", first.Name + " " + first.Location, "OK");
+            }
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Unable to query location: {ex.Message}");
-            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+            if (Application.Current?.MainPage is not null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+            }
         }
     }
 
