@@ -43,9 +43,15 @@ There is an assumption that you are already familiar with C# and ASP.NET Core.
 
 ### Articles & Videos
 
+- **[Xamarin.Forms to .NET MAUI. Add Beautiful Font Icons to Maui in minutes.](https://www.youtube.com/watch?v=L4tJW1ss2Hc)**: Quick overview on adding font icons to .NET MAUI project.
+
 ### Documentation
 
 - **[.NET MAUI](https://docs.microsoft.com/en-us/dotnet/maui/)**: .NET Multi-platform App UI (.NET MAUI) lets you build native apps using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
+
+### Other
+
+- **[Icon Font to #Code](https://andreinitescu.github.io/IconFont2Code/)**: Generate C# code from icon font.
 
 
 ## History
@@ -97,3 +103,13 @@ This README was updated along with adding some clean code best practices.
 6. **Nullable** types are enabled.
 6. **Code styles** are enforced on build.
 7. **Code Cleanup on Save** Visual Studio extension.
+
+### Fluent Design
+
+- [Pull Request #4](https://github.com/scottkuhl/MauiWorkshop/pull/4)
+- [Fluent Branch](https://github.com/scottkuhl/MauiWorkshop/tree/fluent)
+
+A basic Microsoft Fluent Design theme has been applied.
+
+1. **Native Fonts** are used. The open sans is still available but commented out.
+2. **Fluent System Icons** have been added.

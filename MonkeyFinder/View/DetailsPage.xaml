@@ -37,9 +37,9 @@
                         HorizontalOptions="Center"
                         Command="{Binding OpenMapCommand}"
                         Text="Show on Map" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Details}" />
-                <Label Style="{StaticResource MicroLabel}" Text="{Binding Monkey.Location, StringFormat='Location: {0}'}" />
-                <Label Style="{StaticResource MicroLabel}" Text="{Binding Monkey.Population, StringFormat='Population: {0}'}" />
+                <Label Style="{StaticResource Body}" Text="{Binding Monkey.Details}" />
+                <Label Style="{StaticResource Caption}" Text="{Binding Monkey.Location, StringFormat='Location: {0}'}" />
+                <Label Style="{StaticResource Caption}" Text="{Binding Monkey.Population, StringFormat='Population: {0}'}" />
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
